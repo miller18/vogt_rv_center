@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Stocknumber:</strong>
+  <%= @unit.stocknumber %>
+</p>
+
+<p>
+  <strong>Unit type:</strong>
+  <%= @unit.unit_type %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @unit.year %>
+</p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @unit.make %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @unit.model %>
+</p>
+
+<p>
+  <strong>Modelnumber:</strong>
+  <%= @unit.modelnumber %>
+</p>
+
+<p>
+  <strong>Msrp:</strong>
+  <%= @unit.msrp %>
+</p>
+
+<p>
+  <strong>Sale:</strong>
+  <%= @unit.sale %>
+</p>
+
+<p>
+  <strong>Unit status:</strong>
+  <%= @unit.unit_status %>
+</p>
+
+<%= link_to 'Edit', edit_unit_path(@unit) %> |
+<%= link_to 'Back', units_path %>
