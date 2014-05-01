@@ -1,11 +1,19 @@
 VogtRvCenter::Application.routes.draw do
+
+  get 'inventory/listing'
+
   resources :units
+  resources :users
+
+  match '/parts',   to: 'static_pages#parts',   via: 'get'
+  match '/service', to: 'static_pages#service', via: 'get'
+  match '/signup',  to: 'users#new',            via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'static_pages#home', as: 'home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
