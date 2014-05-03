@@ -1,0 +1,17 @@
+<h3>RVs you are watching</h3>
+<table class="table unit-listing">
+  <thead>
+  <tr>
+    <th>Stock Number</th>
+    <th>Unit</th>
+    <th>MSRP</th>
+    <th>Discount</th>
+    <th>Sale Price</th>
+    <th>Times Watched</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render(cart.line_items) %>
+  </tbody>
+</table>
+<%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: 'Are you sure?'} %>

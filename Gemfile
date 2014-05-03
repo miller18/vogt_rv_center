@@ -9,16 +9,17 @@ gem 'bcrypt-ruby', '3.1.2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
-
+  gem 'rspec-rails', '2.13.1'
+  gem 'guard-rspec', '2.5.0'
 end
 
-group :assets do
-  gem 'sass-rails', '~> 4.0.3'
-  gem 'uglifier', '>= 1.3.0'
-  gem 'coffee-rails', '~> 4.0.0'
-end
-
+gem 'sass-rails', '~> 4.0.3'
+gem 'uglifier', '>= 1.3.0'
+gem 'compass-rails'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'sassy-buttons'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 

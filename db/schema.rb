@@ -11,29 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501043910) do
+ActiveRecord::Schema.define(version: 20140502194819) do
+
+  create_table "carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "line_items", force: true do |t|
+    t.integer "unit_id"
+    t.integer "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer "quantity", default: 1
+  end
+
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
+  add_index "line_items", ["unit_id"], name: "index_line_items_on_unit_id"
 
   create_table "units", force: true do |t|
-    t.string   "stocknumber"
-    t.string   "unit_type"
-    t.integer  "year"
-    t.string   "make"
-    t.string   "model"
-    t.string   "modelnumber"
-    t.integer  "msrp"
-    t.integer  "sale"
-    t.string   "unit_status"
+    t.string "stocknumber"
+    t.string "unit_type"
+    t.integer "year"
+    t.string "make"
+    t.string "model"
+    t.string "modelnumber"
+    t.integer "msrp"
+    t.integer "sale"
+    t.string "unit_status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string "name"
+    t.string "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
-    t.string   "remember_token"
+    t.string "password_digest"
+    t.string "remember_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

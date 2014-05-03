@@ -1,27 +1,71 @@
-<% if notice %>
-    <p><%= notice %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1>Units available at Vogt RV</h1>
+    </div>
+    <div class="col-lg-4">
+      <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+          <%= render @cart %>
+      <% end %>
 
-<h1>Units available at Vogt RV</h1>
+    </div>
+  </div>
+
+</div>
 
 <% @units.each do |unit| %>
+    <div class="container-fluid inventory-block <%= cycle("odd", "even") -%>">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <table class="table inventory-listing">
+              <thead>
+              <tr>
+                <td>
+                  <h2><%= unit.year %> <%= unit.make %> <%= unit.model %> <%= unit.modelnumber %></h2>
+                </td>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <img data-src="holder.js/100%x175/text:Unit Pic" alt="...">
+                    </div>
+                    <div class="col-lg-6">
+                      <p>Specs/Floorplan/Description</p>
+                    </div>
+                    <div class="col-lg-3">
+                      <table class="inv-listing-price">
+                        <tr>
+                          <td><span class="green-btn"><%= number_to_currency(unit.msrp, precision: 0) %></span></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span class="green-btn"><%= number_to_currency(unit.msrp - unit.sale, precision: 0) %></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="green-btn"><%= number_to_currency(unit.sale, precision: 0) %></span></td>
+                        </tr>
+                        <tr>
+                          <td><%= button_to 'Watch This RV', line_items_path(unit_id: unit), remote: true, :class => 'green-btn' %></td>
+                        </tr>
+                      </table>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <h3><%= unit.year %> <%= unit.make %> <%= unit.model %> <%= unit.modelnumber %></h3>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-3">
-        <img data-src="holder.js/100%x125/text:Unit Pic" alt="...">
-      </div>
-      <div class="col-lg-6">
-        <p>Specs/Floorplan/Description</p>
-      </div>
-      <div class="col-lg-3">
-        <p>Pricing</p>
-      </div>
-    </div>
-
 
 <% end %>

@@ -1,0 +1,15 @@
+<% if line_item == @current_item %>
+    <tr id="current_item">
+<% else %>
+    <tr>
+<% end %>
+
+<td><%= line_item.unit.stocknumber %></td>
+<td><%= line_item.unit.year %> <%= line_item.unit.make %> <%= line_item.unit.model %> <%= line_item.unit.modelnumber %></td>
+<td><%= number_to_currency(line_item.unit.msrp, precision: 0) %></td>
+<td><%= number_to_currency(line_item.unit.msrp - line_item.unit.sale, precision: 0) %></td>
+<td><%= number_to_currency(line_item.unit.sale, precision: 0) %></td>
+<td><%= line_item.quantity %></td>
+</tr>
+
+        
